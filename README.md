@@ -3,12 +3,6 @@
 <a href="https://doi.org/10.5281/zenodo.18071680"><img src="https://zenodo.org/badge/1123506997.svg" alt="DOI"></a>
 
 This work presents a fundamental theory of artificial learning, providing a unifying framework for understanding and designing optimization algorithms. It interprets learning as a thermodynamic process, where models evolve according to the information they receive. Using geometric and Hamiltonian formalisms, we derive evolution equations that describe this process and offer a physically grounded perspective on learning dynamics.
- 
-# Learning Dynamics
-
-<a href="https://doi.org/10.5281/zenodo.18071680"><img src="https://zenodo.org/badge/1123506997.svg" alt="DOI"></a>
-
-This work presents a fundamental theory of artificial learning, providing a unifying framework for understanding and designing optimization algorithms. It interprets learning as a thermodynamic process, where models evolve according to the information they receive. Using geometric and Hamiltonian formalisms, we derive evolution equations that describe this process and offer a physically grounded perspective on learning dynamics.
 
 ### Citation
 
