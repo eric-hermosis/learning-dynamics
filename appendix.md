@@ -1,4 +1,4 @@
-### Derivation of learning equations
+## Derivation of learning equations
 
 The equations for the system without temperature coupling described by the variables $\mathbf{Y}$ are:
 
@@ -41,9 +41,7 @@ $$
 \left(\frac{\partial H}{\partial \beta} \right)_{\mathbf{X}} + \sum_{j} \left(\frac{\partial H}{\partial X_{j}} \right)_{\beta, X_{i \neq j}} \left(\frac{\partial X_{j}}{\partial \beta} \right)_{\mathbf{Y}}
 $$
 
-The subscripts indicate which parameters are considered constant. This notation is common in thermodynamics and was omitted from the formalism, as we specified at each step the symplectic form upon which we are working.
-
-Let us now consider how to find the partial derivative of the momentum with respect to the parameter $\beta$. From the coupling relation:
+The subscripts indicate which parameters are considered constant. This notation is common in thermodynamics and was omitted from the formalism, as we specified at each step the symplectic form upon which we are working. Let's now consider how to find the partial derivative of the momentum with respect to the parameter $\beta$. From the coupling relation:
 
 $$
 X_{i}  = \frac{Y_{i}}{\beta} \Rightarrow \frac{\partial X_{i}}{\partial \beta} = -\frac{1}{\beta^2} Y_{i} = -\frac{1}{\beta} X_{i}
@@ -67,4 +65,4 @@ $$
 -h\frac{dw^{i}}{dt} = \frac{k}{\beta} \frac{\partial H}{\partial X_{i}}
 $$
 
-Finally, the equation containing the changes of the $H$ in the direction $\partial/\partial U$ is identical, given that the variable U is not coupled in the same way as $\beta$."
+Finally, the equation containing the changes of the $H$ in the direction $\partial/\partial U$ is identical, given that the variable U is not coupled in the same way as $\beta$.

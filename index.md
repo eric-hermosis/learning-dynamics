@@ -12,7 +12,7 @@ This work aims to develop a fundamental theory of artificial learning that both 
 
 The theory is constructed based on the axiomatic thermodynamic framework proposed by Callen [@callen_thermo]. Assuming a quasi-static regime, symplectic geometry is used to describe the geometry of the model’s phase space [@cannas_symph], and a Hamiltonian formalism [@arnold_mechanics] is employed to derive the model’s equations of evolution.
 
-Finally, we utilize these equations to re-derive established optimization algorithms, thereby validating the theory and offering a physical grounding for the learning process. This shows that algorithms like momentum-based Stochastic Gradient Descent [@bishop_dl] or regularization techniques like Weight Decay [@krogh_weight_decay], emerge naturally as consequences of the proposed equations of learning.
+Finally, we utilize these equations to re-derive established optimization algorithms, thereby validating the theory and offering a physical grounding for the learning process. This shows that algorithms like momentum-based Stochastic Gradient Descent [@bishop_dl] or regularization techniques like Weight Decay [@krogh_weight_decay] emerge naturally as consequences of the proposed equations of learning.
 
 ## Model
 
@@ -144,7 +144,7 @@ $$
 h\beta \frac{dX_{i}}{dt} + h\frac{d\beta}{dt} X_{i} = h \frac{d}{dt}(\beta X_{i}) = k\frac{\partial H}{\partial w^{i}}
 $$
 
-Integrating over the interval $[t−\tau,t]$ with $\tau$ small enough to preserve quasi-static aproximation, we obtain an update rule for the momenta:
+Integrating over the interval $[t-\tau,t]$ with $\tau$ small enough to preserve quasi-static aproximation, we obtain an update rule for the momenta:
 
 $$
 \beta(t) \mathbf{X}(t) = \beta(t-\tau) \mathbf{X}(t-\tau) -\int_{t-\tau}^{t} \mathbf{F}(t') dt'
@@ -299,7 +299,7 @@ $$
 \hat{\mathbf{X}}(t) = \frac{\mathbf{X}(t)}{1-e^{-\gamma t}} 
 $$
 
-Under reparameterization, this recovers gradient descent with momentum and friction [@bottou_sgd]:
+Under reparameterization, this recover gradient descent with momentum and friction [@bottou_sgd]:
 
 $$
 \begin{aligned}
@@ -340,7 +340,7 @@ $$
 
 However, considering $\beta(t) = \beta e^{\gamma t}$, we observe that $\mathbf{v} \rightarrow 0$ rapidly and the system ceases to learn. This is not an error in the theory, rather, it is due to the fact that we are working under a classical approximation in which the potential is considered decoupled from the metric tensor.
 
-The work of Guskov and Vanchurin on covariant gradient descent [@guskov_covariant] suggests that by embedding the potential into the metric tensor, recovers adaptive momentum-based optimizers such as $\text{Adam}$ [@kingma_adam] and, as a specific case, the $\text{RMSProp}$ optimizer [@hinton_nn]. Verifying this correspondence explicitly within the current theoretical framework remains as future work.
+The work of Guskov and Vanchurin on covariant gradient descent [@guskov_covariant] suggests that by embedding the potential into the metric tensor, recover adaptive momentum-based optimizers such as $\text{Adam}$ [@kingma_adam] and, as a specific case, the $\text{RMSProp}$ optimizer [@hinton_nn]. Verifying this correspondence explicitly within the current theoretical framework remains as future work.
 
 ## Conclusion
 

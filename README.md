@@ -6,12 +6,6 @@ This work presents a fundamental theory of artificial learning, providing a unif
 
 ### Citation
 
-This work is versioned. To cite the **specific version v0.1.1**, use:
-
-Eric Hermosis. *Learning Dynamics*. Version 0.1.1. 2025.  
- 
-DOI: [10.5281/zenodo.18076850](https://doi.org/10.5281/zenodo.18076850)
-
 To cite the **work in general, including all versions**, use the concept DOI: [10.5281/zenodo.18071680](https://doi.org/10.5281/zenodo.18071680).
 
 ```bibtex
