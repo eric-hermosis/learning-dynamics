@@ -357,23 +357,15 @@ These results lay the groundwork for a new class of physically-informed optimize
 
 ## Citation
 
-This work is versioned. To cite the **specific version v0.1.0**, use:
-
-Eric Hermosis. *Learning Dynamics*. Version 0.1.0. 2025.  
-DOI: [10.5281/zenodo.18071681](https://doi.org/10.5281/zenodo.18071681)
-
 To cite the **work in general, including all versions**, use the concept DOI: [10.5281/zenodo.18071680](https://doi.org/10.5281/zenodo.18071680).
-
-BibTeX entry for v0.1.0:
 
 ```text
 @misc{hermosis2025learning,
   author       = {Eric Hermosis},
   title        = {Learning Dynamics},
   year         = {2025},
-  version      = {v0.1.0},
   howpublished = {\url{https://github.com/eric-hermosis/learning-dynamics}},
-  doi          = {10.5281/zenodo.18071681},
-  note         = {GitHub repository, archived on Zenodo}
+  doi          = {10.5281/zenodo.18071680},
+  note         = {GitHub repository, archived on Zenodo (concept DOI)}
 }
 ```
