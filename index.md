@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This work aims to develop a fundamental theory of artificial learning that both explains existing optimization algorithms and facilitates their improvement as well as the creation of new ones. To this end, only three assumptions were made about a model capable of learning:
+This work aims to develop a fundamental theory of artificial learning that explains existing optimization algorithms, facilitates their improvement, and enables the creation of new ones. To this end, we make only three assumptions about a model capable of learning:
 
 - It can be described by a finite set of parameters.
 	
@@ -12,15 +12,15 @@ This work aims to develop a fundamental theory of artificial learning that both 
 
 The theory is constructed based on the axiomatic thermodynamic framework proposed by Callen [@callen_thermo]. Assuming a quasi-static regime, symplectic geometry is used to describe the geometry of the model’s phase space [@cannas_symph], and a Hamiltonian formalism [@arnold_mechanics] is employed to derive the model’s equations of evolution.
 
-Finally, we utilize these equations to re-derive established optimization algorithms, thereby validating the theory and offering a physical grounding for the learning process. This shows that algorithms like momentum-based Stochastic Gradient Descent [@bishop_dl] or regularization techniques like Weight Decay [@krogh_weight_decay] emerge naturally as consequences of the proposed equations of learning.
+Finally, we use these equations to re-derive established optimization algorithms, thereby validating the theory and offering a physical grounding for the learning process. This shows that algorithms like momentum-based Stochastic Gradient Descent [@bishop_dl] or regularization techniques like Weight Decay [@krogh_weight_decay] emerge naturally as consequences of the proposed equations of learning.
 
 ## Model
 
-The connection between the concepts of information and entropy [@baez_entropy] suggests that learning can be modeled as a thermodynamic process, in which its participants, known as models, evolve based on the information they perceive.
+The connection between the concepts of information and entropy [@baez_entropy] suggests that learning can be modeled as a thermodynamic process, where the participants, known as models, evolve based on the information they perceive.
  
 A model is a simplified representation of a system, defined by a set of parameters that determine its behavior. A specific choice of a set of parameters defines what we will call a configuration.
 
-We say that a model is differentiable if its configurations are points on a smooth differential manifold such that its learning can be defined in terms of a curve parametrized over it. [@lee_smooth]
+We say that a model is differentiable if its configurations are points on a smooth differential manifold, allowing learning to be defined in terms of a parametrized curve over manifold. [@lee_smooth]
 
 On the other hand, we will only focus on models that are domain-agnostic, meaning they do not incorporate assumptions about the information they will ingest. In this way, the dynamics of their learning can be designed solely in terms of their configurations.
 
@@ -34,7 +34,7 @@ $$
 
 Where $U$ represents the internal energy, $w^1, \dots, w^d$ are extensive parameters of the model known as weights, and $c$ is a constant such that $w^0$ is dimensionless.
 
-We say that the model is in an equilibrium state [@callen_thermo] if an entropy function $S$ can be defined over it, with units of information, and monotonically increasing with respect to energy, that is:
+We say that the model is in an equilibrium state [@callen_thermo] if an entropy function $S$ can be defined over it, measured in units of information, and monotonically increasing with respect to energy, that is:
 
 $$
 \frac{\partial S}{\partial U} > 0
@@ -88,8 +88,8 @@ $$
 \{U, \beta\} = 1 \qquad \{w^{i}, Y_{j} \} = \delta^{i}_{j} \qquad \text{with } \delta^{i}_{j} = \begin{cases} 1 \quad i = j \\ 0 \quad i \neq j \end{cases} 
 $$
  
-Then, we can recover an analogue to Hamilton's equations [@hamilton1834] for thermodynamic parameters to describe the evolution of the model parameters without constraints:
- 
+Then, we can recover an analogue to Hamilton's equations [@hamilton1834] for thermodynamic parameters describing the evolution of the model parameters without constraints:
+
 $$
 -h \frac{dw^{i}}{dt} = k\{w^{i}, H\} = k\frac{\partial H}{\partial Y_{i}} \qquad -\frac{dY_{i}}{dt} = k\{Y_{i}, H  \} = -k\frac{\partial H}{\partial w^{i}}
 $$
@@ -100,7 +100,7 @@ $$
 
 Where $h$ is the unit of action and $k$ is the unit of information, which are introduced to maintain consistent units.
 
-The problem with this formulation is that it leads to a dynamics in which the model evolves in closed orbits. To address this, we introduce a coupling of the intensive parameters with the temperature of the form:
+The problem with this formulation is that it leads to dynamics in which the model evolves in closed orbits. To address this, we introduce a coupling of the intensive parameters with the temperature of the form:
 
 $$
 Y_{i} = \beta X_{i} \qquad i = 1, ..., d
@@ -138,7 +138,7 @@ We will refer to these as the Hermosis equations of learning. While they can be 
 
 ## Integration
 
-The presented four equations allow us to describe the learning process of a model. Since they should be numerically integrated to perform optimization, we seek their integral form. By substituting the last equation into the second one and rearranging the terms, we obtain the evolution equation for the momentum $X_i$​ as
+The presented four equations allow us to describe the learning process of a model. Since they need to be numerically integrated to perform optimization, we seek their integral form. By substituting the last equation into the second one and rearranging the terms, we obtain the evolution equation for the momentum $X_i$​ as
 
 $$
 h\beta \frac{dX_{i}}{dt} + h\frac{d\beta}{dt} X_{i} = h \frac{d}{dt}(\beta X_{i}) = k\frac{\partial H}{\partial w^{i}}
@@ -244,7 +244,7 @@ $$
 \mathbf{X}(t) = \mathbf{X}(t-\tau) + \frac{\tau c^2}{h} \nabla L
 $$
 
-Under a suitable reparameterization, we recover the stochastic gradient descent or $\text{SGD}$ update rule [@bishop_dl]:
+Under a suitable reparameterization, we recover the stochastic gradient descent ($\text{SGD}$) update rule [@bishop_dl]:
 
 $$
 \begin{aligned}
@@ -310,7 +310,7 @@ $$
 \end{aligned}
 $$
 
-Most implementations of $\text{SGD}$ with momentum ignore the $\gamma$ parameter and skip the bias correction.
+Most implementations of $\text{SGD}$ with momentum ignore the $\gamma$ parameter and omit the bias correction.
 
 ### Relativistic Hamiltonian
 

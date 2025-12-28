@@ -15,5 +15,16 @@ All notable changes to this paper are documented in this file.
 - Add subsection title "Exponential cooling"
 - Add exponential cooling explanation
 - Add bias correction explanation on SGD with momentum
-- Add subsection title "Relativistic Hamiltonain
+- Add subsection title "Relativistic Hamiltonian"
 - Fix discrepancy between article and online version
+
+
+## [v0.1.2] – 2025-12-28
+### Changed
+- Fix typos
+- Fix discrepancy between article and online version
+
+
+## [v0.1.3] – 2025-12-28
+### Changed
+- Enhance grammar 

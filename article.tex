@@ -21,12 +21,12 @@
 \maketitle
 
 \begin{abstract}
-The work presents a fundamental theory of artificial learning that aims to explain existing optimization algorithms and support the development of new ones. It is based on a thermodynamic framework, using geometric and Hamiltonian formalisms to derive the evolution equations of learning models. These equations provide a physical grounding for the learning process and show that learning can be understood as a thermodynamic process in which models evolve according to the information they perceive.
+The work presents a fundamental theory of artificial learning that aims to explain existing optimization algorithms and support the development of new ones. It is based on a thermodynamic framework, using geometric and Hamiltonian formalisms to derive the evolution equations of learning models. These equations provide a physical grounding for the learning process and show that it can be understood as a thermodynamic process in which models evolve according to the information they perceive.
 \end{abstract}
 
 \section*{Introduction}
 
-This work aims to develop a fundamental theory of artificial learning that both explains existing optimization algorithms and facilitates their improvement as well as the creation of new ones. To this end, only three assumptions were made about a model capable of learning:
+This work aims to develop a fundamental theory of artificial learning that explains existing optimization algorithms, facilitates their improvement, and enables the creation of new ones. To this end, we make only three assumptions about a model capable of learning:
 
 \begin{itemize}
   \item It can be described by a finite set of parameters.
@@ -42,15 +42,15 @@ This work aims to develop a fundamental theory of artificial learning that both 
 
 The theory is constructed based on the axiomatic thermodynamic framework proposed by Callen \cite{callen_thermo}. Assuming a quasi-static regime, symplectic geometry is used to describe the geometry of the model’s phase space \cite{cannas_symph}, and a Hamiltonian formalism \cite{arnold_mechanics} is employed to derive the model’s equations of evolution.
 
-Finally, we utilize these equations to re-derive established optimization algorithms, thereby validating the theory and offering a physical grounding for the learning process. This shows that algorithms like momentum-based Stochastic Gradient Descent \cite{bishop_dl} or regularization techniques like Weight Decay \cite{krogh_weight_decay} emerge naturally as consequences of the proposed equations of learning.
+Finally, we use these equations to re-derive established optimization algorithms, thereby validating the theory and offering a physical grounding for the learning process. This shows that algorithms like momentum-based Stochastic Gradient Descent \cite{bishop_dl} or regularization techniques like Weight Decay \cite{krogh_weight_decay} emerge naturally as consequences of the proposed equations of learning.
 
 \section*{Model}
 
-The connection between the concepts of information and entropy \cite{baez_entropy} suggests that learning can be modeled as a thermodynamic process, in which its participants, known as models, evolve based on the information they perceive.
+The connection between the concepts of information and entropy \cite{baez_entropy} suggests that learning can be modeled as a thermodynamic process, where the participants, known as models, evolve based on the information they perceive.
  
 A model is a simplified representation of a system, defined by a set of parameters that determine its behavior. A specific choice of a set of parameters defines what we will call a configuration.
 
-We say that a model is differentiable if its configurations are points on a smooth differential manifold such that its learning can be defined in terms of a curve parametrized over it. \cite{lee_smooth}
+We say that a model is differentiable if its configurations are points on a smooth differential manifold, allowing learning to be defined in terms of a parametrized curve over manifold. \cite{lee_smooth}
 
 On the other hand, we will only focus on models that are domain-agnostic, meaning they do not incorporate assumptions about the information they will ingest. In this way, the dynamics of their learning can be designed solely in terms of their configurations.
 
@@ -64,7 +64,7 @@ Let's consider a differentiable model whose parameters reside in a smooth manifo
 
 Where $U$ represents the internal energy, $w^1, \dots, w^d$ are extensive parameters of the model known as weights, and $c$ is a constant such that $w^0$ is dimensionless.
 
-We say that the model is in an equilibrium state \cite{callen_thermo} if an entropy function $S$ can be defined over it, with units of information, and monotonically increasing with respect to energy, that is:
+We say that the model is in an equilibrium state \cite{callen_thermo} if an entropy function $S$ can be defined over it, measured in units of information, and monotonically increasing with respect to energy, that is:
 
 \begin{equation}
 \frac{\partial S}{\partial U} > 0
@@ -118,8 +118,8 @@ For each point in the phase space, entropy is defined only for equilibrium state
 \{U, \beta\} = 1 \qquad \{w^{i}, Y_{j} \} = \delta^{i}_{j} \qquad \text{with } \delta^{i}_{j} = \begin{cases} 1 \quad i = j \\ 0 \quad i \neq j \end{cases}
 \end{equation}
  
-Then, we can recover an analogue to Hamilton's equations \cite{hamilton1834} for thermodynamic parameters to describe the evolution of the model parameters without constraints:
- 
+Then, we can recover an analogue to Hamilton's equations \cite{hamilton1834} for thermodynamic parameters describing the evolution of the model parameters without constraints:
+
 \begin{equation}
 -h \frac{dw^{i}}{dt} = k\{w^{i}, H\} = k\frac{\partial H}{\partial Y_{i}} \qquad -\frac{dY_{i}}{dt} = k\{Y_{i}, H  \} = -k\frac{\partial H}{\partial w^{i}}
 \end{equation}
@@ -130,7 +130,7 @@ Then, we can recover an analogue to Hamilton's equations \cite{hamilton1834} for
 
 Where $h$ is the unit of action and $k$ is the unit of information, which are introduced to maintain consistent units.
 
-The problem with this formulation is that it leads to a dynamics in which the model evolves in closed orbits. To address this, we introduce a coupling of the intensive parameters with the temperature of the form:
+The problem with this formulation is that it leads to dynamics in which the model evolves in closed orbits. To address this, we introduce a coupling of the intensive parameters with the temperature of the form:
 
 \begin{equation}
 Y_{i} = \beta X_{i} \qquad i = 1, ..., d
@@ -168,7 +168,7 @@ We will refer to these as the Hermosis equations of learning. While they can be 
 
 \section*{Integration}
 
-The presented four equations allow us to describe the learning process of a model. Since they should be numerically integrated to perform optimization, we seek their integral form. By substituting the last equation into the second one and rearranging the terms, we obtain the evolution equation for the momentum $X_i$ as
+The presented four equations allow us to describe the learning process of a model. Since they need to be numerically integrated to perform optimization, we seek their integral form. By substituting the last equation into the second one and rearranging the terms, we obtain the evolution equation for the momentum $X_i$ as
 
 \begin{equation}
 h\beta \frac{dX_{i}}{dt} + h\frac{d\beta}{dt} X_{i} = h \frac{d}{dt}(\beta X_{i}) = k\frac{\partial H}{\partial w^{i}}
@@ -274,7 +274,7 @@ And the update rule will be a historical accumulation of the loss gradient:
 \mathbf{X}(t) = \mathbf{X}(t-\tau) + \frac{\tau c^2}{h} \nabla L
 \end{equation}
 
-Under a suitable reparameterization, we recover the stochastic gradient descent or $\text{SGD}$ update rule \cite{bishop_dl}:
+Under a suitable reparameterization, we recover the stochastic gradient descent ($\text{SGD}$) update rule \cite{bishop_dl}:
 
 \begin{equation}
 \begin{aligned}
@@ -340,7 +340,7 @@ Under reparameterization, this recover gradient descent with momentum and fricti
 \end{aligned}
 \end{equation}
 
-Most implementations of $\text{SGD}$ with momentum ignore the $\gamma$ parameter and skip the bias correction.
+Most implementations of $\text{SGD}$ with momentum ignore the $\gamma$ parameter and omit the bias correction.
 
 \subsection*{Relativistic Hamiltonian}
 
@@ -395,7 +395,7 @@ These results lay the groundwork for a new class of physically-informed optimize
 
 \section*{Appendix: Derivation of learning equations}
 
-The equations for the system without temperature coupling described by the variables $\mathbf{Y}$ are:
+The equations for the system without temperature coupling, described by the variables $\mathbf{Y}$, are:
 
 \begin{equation}
 -h \frac{dw^{i}}{dt} = k\{w^{i}, H\} = k\frac{\partial H}{\partial Y_{i}} \qquad -\frac{dY_{i}}{dt} = k\{Y_{i}, H  \} = -k\frac{\partial H}{\partial w^{i}}
@@ -405,38 +405,38 @@ The equations for the system without temperature coupling described by the varia
 -\frac{dU}{dt} = k\frac{\partial H}{\partial \beta} \qquad -h\frac{d\beta}{dt} = -k\frac{\partial H}{\partial U}
 \end{equation}
 
-Let us now see how to derive the equations with the coupling $\mathbf{Y}=\beta \mathbf{X}$. From the Leibniz rule for the bracket containing the coordinates of $\mathbf{Y}$, given a Hamiltonian $H$:
+Let now derive the equations with the coupling $\mathbf{Y} = \beta \mathbf{X}$. Using the Leibniz rule for the bracket containing the coordinates of $\mathbf{Y}$, for a Hamiltonian $H$, we have:
 
 \begin{equation}
 \{Y_{i}, H\} = \{\beta X_{i}, H\} = \beta\{X_{i}, H\} + X_{i}\{\beta, H\}
 \end{equation}
 
-Given that we know:
+Given that:
 
 \begin{equation}
 \{Y_{i}, H  \} = -\frac{\partial H}{\partial w^{i}} \qquad  \{\beta, H\} = -\frac{\partial H}{\partial U}
 \end{equation}
 
-We substitute these values to obtain the Poisson brackets of the system in terms of the momenta $\mathbf{X}$:
+We can substitute these values to obtain the Poisson brackets of the system in terms of the momenta $\mathbf{X}$:
 
 \begin{equation}
 -\frac{\partial H}{\partial w^{i}} = \beta \{X_{i}, H\} - X_{i} \frac{\partial H}{\partial U} \Rightarrow \{X_{i}, H\} = -\frac{1}{\beta}\frac{\partial H}{\partial w^{i}} + \frac{X_{i}}{\beta} \frac{\partial H}{\partial U}
 \end{equation}
 
-And we recover the proposed H-equation:
+We then recover the second proposed equation for evolution of momentum:
 
 \begin{equation}
 -h\frac{dX_{i}}{dt} = k\{X_{i}, H\} = -\frac{k}{\beta}\frac{\partial H}{\partial w^{i}} + \frac{kX_{i}}{\beta} \frac{\partial H}{\partial U}
 \end{equation}
 
-In order to reconcile the evolution of the internal energy with the proposed evolution, we recall the following thermodynamic identity:
+To reconcile the evolution of the internal energy with the third proposed equation, we recall the following thermodynamic identity:
 
 \begin{equation}
 \left(\frac{\partial H}{\partial \beta} \right)_{\mathbf{Y}} =  
 \left(\frac{\partial H}{\partial \beta} \right)_{\mathbf{X}} + \sum_{j} \left(\frac{\partial H}{\partial X_{j}} \right)_{\beta, X_{i \neq j}} \left(\frac{\partial X_{j}}{\partial \beta} \right)_{\mathbf{Y}}
 \end{equation}
 
-The subscripts indicate which parameters are considered constant. This notation is common in thermodynamics and was omitted from the formalism, as we specified at each step the symplectic form upon which we are working. Let's now consider how to find the partial derivative of the momentum with respect to the parameter $\beta$. From the coupling relation:
+The subscripts indicate which parameters are held constant. This notation is common in thermodynamics and was previously omitted, as we specified at each step the symplectic form under consideration. Next, we find the partial derivative of the momentum with respect to the parameter $\beta$. From the coupling relation:
 
 \begin{equation}
 X_{i}  = \frac{Y_{i}}{\beta} \Rightarrow \frac{\partial X_{i}}{\partial \beta} = -\frac{1}{\beta^2} Y_{i} = -\frac{1}{\beta} X_{i}
@@ -448,19 +448,19 @@ We can then obtain the evolution of the internal energy:
 -h\frac{dU}{dt} = k\frac{\partial H}{\partial \beta} - \frac{1}{\beta} \sum_{j} \frac{\partial H}{\partial X_{j}}X_{j}
 \end{equation}
 
-For the weight-momentum brackets let us note that:
+For the weight–momentum brackets, we note that:
 
 \begin{equation}
 \frac{\partial H}{\partial Y_{i}} = \frac{\partial H}{\partial X_{i}} \frac{\partial X_{i}}{\partial Y_{i}} = \frac{1}{\beta} \frac{\partial H}{\partial X_{i}}
 \end{equation}
 
-Then:
+Thus:
 
 \begin{equation}
 -h\frac{dw^{i}}{dt} = \frac{k}{\beta} \frac{\partial H}{\partial X_{i}}
 \end{equation}
 
-Finally, the equation containing the changes of the $H$ in the direction $\partial/\partial U$ is identical, given that the variable U is not coupled in the same way as $\beta$.
+Finally, the equation describing changes of $H$ in the direction $\partial/\partial U$ remains unchanged, since the variable $U$ is not coupled in the same manner as $\beta$.
 \newpage
 \bibliographystyle{unsrt}
 \bibliography{references}
