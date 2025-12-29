@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+title: "Learning Dynamics"
+version: "0.1.3"
+doi: "10.5281/zenodo.18071680"
+authors:
+  - family-names: "Hermosis"
+    given-names: "Eric"
+    orcid: "https://orcid.org/0009-0001-3721-5203"
+date-released: "2025-12-28"
+message: "If you use this work, please cite it using the DOI below."
+url: "https://github.com/eric-hermosis/learning-dynamics"
+type: "software"
+keywords:
+  - machine learning
+  - learning theory
+  - optimization
+license: "CC-BY-4.0"
