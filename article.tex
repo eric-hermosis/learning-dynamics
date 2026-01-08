@@ -21,7 +21,7 @@
 \maketitle
 
 \begin{abstract}
-The work presents a fundamental theory of artificial learning that aims to explain existing optimization algorithms and support the development of new ones. It is based on a thermodynamic framework, using geometric and Hamiltonian formalisms to derive the evolution equations of learning models. These equations provide a physical grounding for the learning process and show that it can be understood as a thermodynamic process in which models evolve according to the information they perceive.
+The work presents a fundamental theory of artificial learning that aims to explain existing optimization algorithms used to train artificial intelligence models and to support the development of new ones. It is based on a thermodynamic framework, employing geometric and a Hamiltonian formalism to derive the evolution equations of learning. These equations provide a physical grounding for the learning process and show that it can be understood as a thermodynamic process in which models evolve according to the information they perceive.
 \end{abstract}
 
 \section*{Introduction}
@@ -398,11 +398,11 @@ These results lay the groundwork for a new class of physically-informed optimize
 The equations for the system without temperature coupling, described by the variables $\mathbf{Y}$, are:
 
 \begin{equation}
--h \frac{dw^{i}}{dt} = k\{w^{i}, H\} = k\frac{\partial H}{\partial Y_{i}} \qquad -\frac{dY_{i}}{dt} = k\{Y_{i}, H  \} = -k\frac{\partial H}{\partial w^{i}}
+-h \frac{dw^{i}}{dt} = k\{w^{i}, H\} = k\frac{\partial H}{\partial Y_{i}} \qquad -h\frac{dY_{i}}{dt} = k\{Y_{i}, H  \} = -k\frac{\partial H}{\partial w^{i}}
 \end{equation}
 
 \begin{equation}
--\frac{dU}{dt} = k\frac{\partial H}{\partial \beta} \qquad -h\frac{d\beta}{dt} = -k\frac{\partial H}{\partial U}
+-h \frac{dU}{dt} = k\frac{\partial H}{\partial \beta} \qquad -h\frac{d\beta}{dt} = -k\frac{\partial H}{\partial U}
 \end{equation}
 
 Let now derive the equations with the coupling $\mathbf{Y} = \beta \mathbf{X}$. Using the Leibniz rule for the bracket containing the coordinates of $\mathbf{Y}$, for a Hamiltonian $H$, we have:

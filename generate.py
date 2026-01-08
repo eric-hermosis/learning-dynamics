@@ -38,8 +38,7 @@ POSTAMBLE = r"""
 \bibliography{references}
 \end{document}
 """
-
-# ----------------- Utilities -----------------
+ 
 
 def strip_title(text: str) -> str:
     return re.sub(r"^\s*#\s+.*\n+", "", text)
@@ -50,8 +49,7 @@ def strip_citation_section(text: str) -> str:
 def sanitize_unicode(text: str) -> str:
     text = text.replace("\u200B", "")
     return text
-
-# ----------------- Converters -----------------
+ 
 
 def convert_math(text: str) -> str:
     def repl(m):
@@ -95,8 +93,7 @@ def markdown_to_latex(text: str) -> str:
     text = convert_lists(text)
     text = convert_citations(text)
     return cleanup(text)
-
-# ----------------- Appendix handling -----------------
+ 
 
 def convert_appendix(text: str) -> str:
     """
@@ -118,10 +115,9 @@ def convert_appendix(text: str) -> str:
             continue
         out.append(line)
     return markdown_to_latex("\n".join(out))
+ 
 
-# ----------------- Transpiler -----------------
-
-def transpile():
+def compile():
     abstract = sanitize_unicode(ABSTRACT_MD.read_text(encoding="utf-8").strip())
     body = sanitize_unicode(INDEX_MD.read_text(encoding="utf-8"))
     body = strip_title(body)
@@ -160,4 +156,4 @@ def transpile():
         print(f"Error during PDF compilation: {e}")
 
 if __name__ == "__main__":
-    transpile()
+    compile()

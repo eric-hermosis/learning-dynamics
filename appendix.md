@@ -3,11 +3,11 @@
 The equations for the system without temperature coupling, described by the variables $\mathbf{Y}$, are:
 
 $$
--h \frac{dw^{i}}{dt} = k\{w^{i}, H\} = k\frac{\partial H}{\partial Y_{i}} \qquad -\frac{dY_{i}}{dt} = k\{Y_{i}, H  \} = -k\frac{\partial H}{\partial w^{i}}
+-h \frac{dw^{i}}{dt} = k\{w^{i}, H\} = k\frac{\partial H}{\partial Y_{i}} \qquad -h\frac{dY_{i}}{dt} = k\{Y_{i}, H  \} = -k\frac{\partial H}{\partial w^{i}}
 $$
 
 $$
--\frac{dU}{dt} = k\frac{\partial H}{\partial \beta} \qquad -h\frac{d\beta}{dt} = -k\frac{\partial H}{\partial U}
+-h \frac{dU}{dt} = k\frac{\partial H}{\partial \beta} \qquad -h\frac{d\beta}{dt} = -k\frac{\partial H}{\partial U}
 $$
 
 Let now derive the equations with the coupling $\mathbf{Y} = \beta \mathbf{X}$. Using the Leibniz rule for the bracket containing the coordinates of $\mathbf{Y}$, for a Hamiltonian $H$, we have:
