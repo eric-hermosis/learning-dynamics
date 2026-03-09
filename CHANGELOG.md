@@ -1,30 +1,39 @@
 # Changelog
 
-All notable changes to this paper are documented in this file. 
+All notable changes to this paper are documented in this file.
 
-## [v0.1.1] – 2025-12-28
-### Changed
-- Updated abstract for clarity.
-- Renamed subsection modelling to model  
-- Fix position of model subsection
-- Updated Equilibrium section for clarity
-- Fix bad numeration on section application
-- Add subsection title "constant temperature"
-- Add subsection title "Harmonic potential"
-- Renamed subindex alpha to i weight decay formula
-- Add subsection title "Exponential cooling"
-- Add exponential cooling explanation
-- Add bias correction explanation on SGD with momentum
-- Add subsection title "Relativistic Hamiltonian"
-- Fix discrepancy between article and online version
-
-
-## [v0.1.2] – 2025-12-28
-### Changed
-- Fix typos
-- Fix discrepancy between article and online version
-
+## [v0.1.4] – 2026-03-09
+ 
+- Renamed *Application* section to *Optimization*.
+- Improved grammar throughout the manuscript.
+- Added punctuation to equations.
+- Moved citation metadata to `cite.md`.
+- Updated README.
+- Added section structure to the appendix.
+- Corrected mathematical derivations in the appendix.
+- Removed quasi-static regime assumption. 
 
 ## [v0.1.3] – 2025-12-28
-### Changed
-- Enhance grammar 
+ 
+- Improved grammar.
+
+## [v0.1.2] – 2025-12-28
+ 
+- Corrected typos.
+- Resolved discrepancy between the article and the online version.
+
+## [v0.1.1] – 2025-12-28
+ 
+- Updated abstract for clarity.
+- Renamed subsection *Modelling* to *Model*.
+- Corrected the position of the *Model* subsection.
+- Revised the *Equilibrium* section for clarity.
+- Corrected section numbering in the *Application* section.
+- Added subsection **Constant Temperature**.
+- Added subsection **Harmonic Potential**.
+- Replaced subindex `\alpha` with `i` in the weight decay formula.
+- Added subsection **Exponential Cooling**.
+- Added explanation of exponential cooling.
+- Added explanation of bias correction in SGD with momentum.
+- Added subsection **Relativistic Hamiltonian**. 
+- Resolved discrepancy between the article and the online version.

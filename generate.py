@@ -10,21 +10,33 @@ APPENDIX_MD = ROOT / "appendix.md"
 OUT = ROOT / "article.tex"
 
 PREAMBLE = r"""
-\documentclass[11pt]{article}
-
-% ----------------- Packages -----------------
-\usepackage[utf8]{inputenc}
+\documentclass[12pt]{article} 
+\usepackage[utf8]{inputenc} 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage{amsmath, amssymb}
-\usepackage{graphicx}
+\usepackage{amsmath, amssymb} 
 \usepackage{hyperref}
 \usepackage{geometry}
 \usepackage{cite}
+\usepackage[font=small,labelfont=bf]{caption}
 
-\geometry{a4paper, margin=1in}
+\usepackage{graphicx}
+\usepackage[
+  font=small,
+  labelfont=bf, 
+  margin=0.5cm
+]{caption}
+ 
 
-\title{Learning Dynamics}
+\setlength{\textfloatsep}{1.2em}
+\setlength{\floatsep}{1em}
+\setlength{\intextsep}{1em}
+
+\geometry{a4paper, top=3.5cm, bottom=3.5cm, left=3.5cm, right=3.5cm} 
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+\title{Learning Dinamics}
 \author{Eric Hermosis \\ \texttt{eric.hermosis@gmail.com}}
 \date{\today}
 
@@ -38,7 +50,6 @@ POSTAMBLE = r"""
 \bibliography{references}
 \end{document}
 """
- 
 
 def strip_title(text: str) -> str:
     return re.sub(r"^\s*#\s+.*\n+", "", text)
@@ -65,20 +76,31 @@ def convert_sections(text: str) -> str:
 
 def convert_lists(text: str) -> str:
     lines = text.splitlines()
-    out, in_list = [], False
+    out = []
+    in_list = False
+
     for line in lines:
+        # list item
         if re.match(r"^\s*-\s+", line):
             if not in_list:
                 out.append(r"\begin{itemize}")
                 in_list = True
             out.append(r"  \item " + line.lstrip("- ").strip())
+
+        # blank line inside list → ignore
+        elif in_list and line.strip() == "":
+            continue
+
+        # normal line
         else:
             if in_list:
                 out.append(r"\end{itemize}")
                 in_list = False
             out.append(line)
+
     if in_list:
         out.append(r"\end{itemize}")
+
     return "\n".join(out)
 
 def convert_citations(text: str) -> str:
