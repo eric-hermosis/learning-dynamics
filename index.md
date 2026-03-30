@@ -1,5 +1,3 @@
-# Learning Dynamics
-
 ## Introduction
 
 This work aims to develop a fundamental theory of artificial learning that explains existing optimization algorithms, facilitates their improvement and enables the creation of new ones. To this end, we make only three assumptions about a model capable of learning:
@@ -10,17 +8,17 @@ This work aims to develop a fundamental theory of artificial learning that expla
 	
 - It makes no assumptions about the information it ingests.
 
-The theory is constructed based on the axiomatic thermodynamic framework proposed by Callen [@callen_thermo]. Symplectic geometry is used to describe the model’s phase space [@cannas_symph]. A Hamiltonian formalism [@arnold_mechanics] is then employed to derive the model’s equations of evolution, describing how the system progresses through a succession of equilibrium states.
+The theory is constructed based on the axiomatic thermodynamic framework proposed by Callen ([Callen H, 1985](@callen_thermo)). Symplectic geometry is used to describe the model’s phase space ([da Silva A, 2001](@cannas_symph)). A Hamiltonian formalism ([Arnold V, 1989](@arnold_mechanics)) is then employed to derive the model’s equations of evolution, describing how the system progresses through a succession of equilibrium states.
 
-Finally, we use these equations to re-derive established optimization algorithms, thereby validating the theory and offering a physical grounding for the learning process. This shows that algorithms like momentum-based stochastic gradient descent [@bishop_dl] or regularization techniques like Weight Decay [@krogh_weight_decay] emerge naturally as consequences of the proposed equations of learning.
+Finally, we use these equations to re-derive established optimization algorithms, thereby validating the theory and offering a physical grounding for the learning process. This shows that algorithms like momentum-based stochastic gradient descent ([Bishop C & Bishop H, 2024](@bishop_dl)) or regularization techniques like Weight Decay ([Krogh A & Hertz J, 1992](@krogh_weight_decay)) emerge naturally as consequences of the proposed equations of learning.
 
 ## Model
 
-The connection between the concepts of information and entropy [@baez_entropy] suggests that learning can be modeled as a thermodynamic process, where the participants, known as models, evolve based on the information they perceive.
+The connection between the concepts of information and entropy ([Baez J, 2024](@baez_entropy)) suggests that learning can be modeled as a thermodynamic process, where the participants, known as models, evolve based on the information they perceive.
  
 A model is a simplified representation of a system, defined by a set of parameters that determine its behavior. A specific choice of a set of parameters defines what we will call a configuration.
 
-We say that a model is differentiable if its configurations are points on a smooth differential manifold, allowing learning to be defined in terms of a parametrized curve over the manifold. [@lee_smooth]
+We say that a model is differentiable if its configurations are points on a smooth differential manifold, allowing learning to be defined in terms of a parametrized curve over the manifold. ([Lee J, 2013](@lee_smooth))
 
 On the other hand, we will only focus on models that are domain-agnostic, meaning they do not incorporate assumptions about the information they will ingest. In this way, the dynamics of their learning can be designed solely in terms of their configurations.
 
@@ -34,7 +32,7 @@ $$
 
 where $U$ represents the internal energy, $w^1, \dots, w^d$ are extensive parameters of the model known as weights.
 
-We say that the model is in an equilibrium state [@callen_thermo] if an entropy function $S$ can be defined over it, measured in units of information, and monotonically increasing with respect to energy, that is:
+We say that the model is in an equilibrium state ([Callen H, 1985](@callen_thermo)) if an entropy function $S$ can be defined over it, measured in units of information, and monotonically increasing with respect to energy, that is:
 
 $$
 \frac{\partial S}{\partial U} > 0.
@@ -58,7 +56,7 @@ $$
 T \equiv \frac{1}{\beta} > 0. 
 $$
 
-The entropy function is local, that is, it is only defined for each equilibrium state. Therefore, if one seeks to describe the states of the model over the entire state space, it is necessary to resort to the phase space [@arnold_mechanics] defined over $\mathcal{S}$. 
+The entropy function is local, that is, it is only defined for each equilibrium state. Therefore, if one seeks to describe the states of the model over the entire state space, it is necessary to resort to the phase space ([Arnold V, 1989](@arnold_mechanics)) defined over $\mathcal{S}$. 
 
 The phase space is a construction over the state space that assigns to each point its cotangent space; that is, if $(w_0, \mathbf{w})$ are coordinates of the state space, then $(w_0, \mathbf{w},Y^0, \mathbf{Y})$ are coordinates of the phase space. Let us now consider the $1$-form living in the phase space $\Omega$ given by:
 
@@ -78,7 +76,7 @@ $$
 d\omega = d\beta \wedge dU + \sum_{j} dY_{j} \wedge dw^{j},
 $$
 
-known as the symplectic form [@cannas_symph] and allows the phase space $\Omega$ to be endowed with a Hamiltonian geometric structure.
+known as the symplectic form [da Silva A, 2001](@cannas_symph) and allows the phase space $\Omega$ to be endowed with a Hamiltonian geometric structure.
 
 ## Evolution
 
@@ -90,7 +88,7 @@ $$
 \{U, \beta\} = 1, \qquad \{w^{i}, Y_{j} \} = \delta^{i}_{j} \qquad \text{with } \delta^{i}_{j} = \begin{cases} 1 \quad i = j \\ 0 \quad i \neq j \end{cases} 
 $$
  
-Using this construction, we can recover an analogue of Hamilton's equations [@hamilton1834] for thermodynamic parameters describing the evolution of the model parameters without constraints:
+Using this construction, we can recover an analogue of Hamilton's equations ([Hamilton W, 1834](@hamilton1834)) for thermodynamic parameters describing the evolution of the model parameters without constraints:
 
 $$
 \begin{aligned}
@@ -248,7 +246,7 @@ $$
 \mathbf{X}(t) = \mathbf{X}(t-\tau) + \frac{\tau c^2}{h} \nabla L.
 $$
 
-Under a suitable reparameterization, we recover the stochastic gradient descent ($\text{SGD}$) update rule [@bishop_dl]:
+Under a suitable reparameterization, we recover the stochastic gradient descent ($\text{SGD}$) update rule ([Bishop C & Bishop H, 2024](@bishop_dl)):
 
 $$
 \begin{aligned}
@@ -269,7 +267,7 @@ $$
 H = \frac{\beta}{2k} \mathbf{X}^2 + \frac{\lambda}{2} \mathbf{w}^2 + V,
 $$
 
-the generalized force now includes a term consistent with that used in gradient descent with weight decay [@krogh_weight_decay], which proposes adding a term $\lambda \mathbf{w}$ to the loss gradient. This is because an extra term is now added to the force:
+the generalized force now includes a term consistent with that used in gradient descent with weight decay ([Krogh A & Hertz J, 1992](@krogh_weight_decay)), which proposes adding a term $\lambda \mathbf{w}$ to the loss gradient. This is because an extra term is now added to the force:
 
 $$
 F_{i}' = \lambda w_{i}.
@@ -291,19 +289,19 @@ $$
 \mathbf{I}(t) = \frac{\beta c^2}{h} \nabla L \int_{t-\tau}^t e^{\gamma t'} dt' = \frac{c^2}{h} \frac{1-e^{-\gamma \tau}}{\gamma} \beta e^{\gamma t},
 $$
 
-then, momentum will be an exponential moving average [@brown_expsmooth] of the loss gradient:
+then, momentum will be an exponential moving average ([Brown R, 1956](@brown_expsmooth)) of the loss gradient:
 
 $$
 \mathbf{X}(t) = e^{-\gamma \tau} \mathbf{X}(t-\tau) + \frac{1-e^{-\gamma \tau}}{\gamma} \frac{c^2}{h} \nabla L.
 $$
 
-The exponential moving average is biased toward zero at early times due to its initialization, therefore, a bias correction factor should be applied [@kingma_adam]:
+The exponential moving average is biased toward zero at early times due to its initialization, therefore, a bias correction factor should be applied ([Kingma D & Ba J, 2014](@kingma_adam)):
 
 $$
 \hat{\mathbf{X}}(t) = \frac{\mathbf{X}(t)}{1-e^{-\gamma t}},
 $$
-
-under reparameterization, this recovers the gradient descent with momentum and friction [@bottou_sgd]:
+ 
+under reparameterization, this recovers the gradient descent with momentum and friction ([Léon Bottou, 2010](@bottou_sgd)):
 
 $$
 \begin{aligned}
@@ -330,13 +328,13 @@ $$
 \sqrt{\mathbf{X}^2+\frac{k^2}{\beta^2}} = \frac{k^2}{\beta^2} \sqrt{\frac{\beta^2}{k^2}\mathbf{X}^2 + 1} \approx \frac{k}{\beta} + \frac{\beta}{2k}\mathbf{X}^2 - \frac{\beta^3 (\mathbf{X}^2)^2}{8k^3} + \cdots
 $$
 
-where the first term, $kT$, corresponds to a rest energy, while higher-order terms are typically discarded. However, recent work on physics-inspired optimizers [@vaidhyanathan_vradam] has shown that retaining higher-order terms in the series can enhance optimization. Under a relativistic regime, the learning velocity will then be:
+where the first term, $kT$, corresponds to a rest energy, while higher-order terms are typically discarded. However, recent work on physics-inspired optimizers ([Vaidhyanathan P et al., 2025](@vaidhyanathan_vradam)) has shown that retaining higher-order terms in the series can enhance optimization. Under a relativistic regime, the learning velocity will then be:
 
 $$
 v^{i} = \frac{k}{h\beta} \frac{\partial H}{\partial X_{i}} =  \frac{k}{h\beta}  \frac{X^{i}}{ \sqrt{\mathbf{X}^2 + k^2/\beta^2}} = \frac{1}{h} \frac{X^{i}}{\sqrt{\beta^2\mathbf{X}^2/k^2 + 1}}.
 $$
 
-If we consider $\beta(t) = \beta$ to be constant, we recover the relativistic gradient descent [@franca_conformal], which proposes weight updates of the form:
+If we consider $\beta(t) = \beta$ to be constant, we recover the relativistic gradient descent ([França G et al., 2019](@franca_conformal)), which proposes weight updates of the form:
 
 $$
 \mathbf{w}(t) = \mathbf{w}(t-\tau) - \eta \frac{\mathbf{X}}{ \sqrt{\mathbf{X}^2 + k^2/\beta^2}},
@@ -344,7 +342,7 @@ $$
 
 however, considering $\beta(t) = \beta e^{\gamma t}$, we observe that $\mathbf{v} \rightarrow 0$ rapidly and the system ceases to learn. This is not an error in the theory, rather, it is due to the fact that we are working under a classical approximation in which the potential is considered decoupled from the metric tensor.
 
-The work of Guskov and Vanchurin on covariant gradient descent [@guskov_covariant] suggests that by embedding the potential into the metric tensor, one can recover adaptive momentum-based optimizers such as $\text{Adam}$ [@kingma_adam] and, as a specific case, the $\text{RMSProp}$ optimizer [@hinton_nn]. Verifying this correspondence explicitly within the current theoretical framework remains as future work.
+The work of Guskov and Vanchurin on covariant gradient descent ([Guskov D & Vanchurin V, 2025](@guskov_covariant)) suggests that by embedding the potential into the metric tensor, one can recover adaptive momentum-based optimizers such as $\text{Adam}$ ([Kingma D & Ba J, 2014](@kingma_adam)) and, as a specific case, the $\text{RMSProp}$ optimizer ([Hinton G, 2012](@hinton_nn)). Verifying this correspondence explicitly within the current theoretical framework remains as future work.
 
 ## Conclusion
 
