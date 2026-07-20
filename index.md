@@ -348,7 +348,7 @@ The work of Guskov and Vanchurin on covariant gradient descent ([Guskov D & Vanc
 
 The proposed formalism demonstrates that a Hamiltonian framework can recover the majority of current optimization algorithms. This approach moves beyond purely heuristic updates, offering a clear physical interpretation where:
 
-- The loss function acts as a metric distance between model configurations.
+- The loss function acts as a pseudo distance between model configurations.
 	
 - Temperature dictates the effective mass, weighting the importance of these distances.
 	
