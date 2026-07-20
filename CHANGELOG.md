@@ -2,6 +2,11 @@
 
 All notable changes to this paper are documented in this file.
 
+
+## [v0.1.5] – 2026-07-20
+- Corrected the loss function being referred to as a distance.
+
+
 ## [v0.1.4] – 2026-03-09
  
 - Renamed *Application* section to *Optimization*.
