@@ -4,6 +4,10 @@ All notable changes to this paper are documented in this file.
 
 
 ## [v0.1.5] – 2026-07-20
+- Fix mismatch between pdf version and corrected markdown version
+
+
+## [v0.1.5] – 2026-07-20
 - Corrected the loss function being referred to as a distance.
 
 

@@ -350,7 +350,7 @@ The proposed formalism demonstrates that a Hamiltonian framework can recover the
 
 - The loss function plays the same role as distance in determining gravitational potentials.
 	
-- Temperature dictates the effective mass, weighting the importance of these distances.
+- Temperature acts as an effective mass, weighting the importance of these distances.
 	
 - Phase space convergence is driven by the evolution of internal energy.
  
