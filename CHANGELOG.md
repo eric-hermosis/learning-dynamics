@@ -3,7 +3,7 @@
 All notable changes to this paper are documented in this file.
 
 
-## [v0.1.5] – 2026-07-20
+## [v0.1.6] – 2026-07-20
 - Fix mismatch between pdf version and corrected markdown version
 
 
